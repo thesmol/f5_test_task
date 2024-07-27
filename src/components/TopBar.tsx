@@ -1,11 +1,11 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material"
 import { useRecoilValue } from "recoil";
-import { authState } from "../state/authState";
+import { authState, AuthStateType } from "../state/authState";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
 const TopBar: React.FC = () => {
-    const auth = useRecoilValue(authState);
+    const auth = useRecoilValue<AuthStateType>(authState);
     const { logout } = useAuth();
     const router = useNavigate();
 

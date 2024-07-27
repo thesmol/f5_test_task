@@ -1,5 +1,5 @@
 import { useRecoilState } from 'recoil';
-import { authState } from '../state/authState';
+import { authState, AuthStateType } from '../state/authState';
 import { useMutation } from '@apollo/client';
 import { LOGIN, LOGOUT, REGISTER } from '../graphql/mutations/auth';
 import { User } from '../types';
@@ -17,7 +17,7 @@ export const useAuth = (): {
     isAuthLoading: boolean;
     setError: (error: string | null) => void;
 } => {
-    const [auth, setAuth] = useRecoilState(authState);
+    const [auth, setAuth] = useRecoilState<AuthStateType>(authState);
     const [loginMutation] = useMutation(LOGIN);
     const [registerMutation] = useMutation(REGISTER);
     const [logoutMutation] = useMutation(LOGOUT);
