@@ -3,7 +3,6 @@ import { RecoilRoot } from "recoil"
 import client from "./graphql/client"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import LoginPage from "./pages/LoginPage"
-import RegisterPage from "./pages/RegisterPage"
 import DashboardPage from "./pages/DashboardPage"
 import PrivateRoute from "./components/PrivateRoute"
 import NotFoundPage from "./pages/NotFoundPage"
@@ -22,7 +21,6 @@ function App() {
           <Routes>
             <Route element={<PublicRoute />}>
               <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
             </Route>
             <Route path="/notfound" element={<NotFoundPage />} />
             <Route element={<PrivateRoute />}>
