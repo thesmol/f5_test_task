@@ -16,3 +16,8 @@ export interface User {
     userRoleId: number | null;
     leaders: [number] | [];
 }
+
+export interface Role {
+    id: number;
+    name: string;
+}
