@@ -16,7 +16,6 @@
     "@fontsource/roboto": "^5.0.13",
     "@mui/icons-material": "^5.16.5",
     "@mui/material": "^5.16.5",
-    "ag-grid-community": "^32.0.2",
     "ag-grid-react": "^32.0.2",
     "graphql": "^16.9.0",
     "react": "^18.3.1",
