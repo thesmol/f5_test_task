@@ -22,7 +22,7 @@ const TopBar: React.FC = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Кондуктор
                     </Typography>
-                    {auth.isAuthenticated ? <Button color="inherit" onClick={() => handleLogout()}>Выйти</Button> : null}
+                    {auth.isAuthenticated ? <Button  variant="contained" color="warning" onClick={() => handleLogout()}>Выйти</Button> : null}
                 </Toolbar>
             </AppBar>
         </Box>
