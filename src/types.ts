@@ -22,3 +22,4 @@ export interface User {
     userRoleId: number | null;
     leaders: [number] | [];
 }
+
