@@ -19,8 +19,8 @@ The task required developing a web application that:
 
 ## Implementation
 
-### Features
-## Project structure
+## Features
+### Project structure
 
 - `src/components`: React components
 - `src/pages`: Page components
