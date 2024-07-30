@@ -11,8 +11,13 @@ import PublicRoute from "./components/PublicRoute"
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
 
-
-function App() {
+/**
+ * Главный компонент приложения.
+ * Настраивает основные провайдеры (Recoil, Apollo, React Router) и определяет структуру маршрутизации.
+ * 
+ * @returns {JSX.Element} Корневой элемент приложения
+ */
+function App(): JSX.Element {
   return (
     <RecoilRoot>
       <ApolloProvider client={client}>

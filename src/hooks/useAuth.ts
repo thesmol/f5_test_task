@@ -5,6 +5,11 @@ import { LOGIN, LOGOUT, REGISTER } from '../graphql/mutations/auth';
 import { User } from '../types';
 import { useState } from 'react';
 
+/**
+ * Хук для управления аутентификацией пользователя.
+ * 
+ * @returns {object} Объект с функциями и состоянием аутентификации
+ */
 export const useAuth = (): {
     login: (login: string, password: string) => Promise<boolean>;
     register: (user: User) => Promise<boolean>;

@@ -5,11 +5,20 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { toast } from 'react-toastify';
 
+/**
+ * Интерфейс для формы входа в систему
+ */
 interface LoginForm {
     userLogin: string;
     userPassword: string;
 }
 
+/**
+ * Компонент страницы входа.
+ * Отображает форму для ввода логина и пароля.
+ *
+ * @returns Страница входа
+ */
 const LoginPage: React.FC = () => {
     const { login, isAuthLoading, error, setError } = useAuth();
     const [formData, setFormData] = useState<LoginForm>({
@@ -19,6 +28,11 @@ const LoginPage: React.FC = () => {
 
     const router = useNavigate();
 
+    /**
+     * Обработчик изменения полей формы
+     * 
+     * @param e - Событие изменения формы
+     */
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
@@ -27,6 +41,11 @@ const LoginPage: React.FC = () => {
         }));
     };
 
+    /**
+     * Обработчик отправки формы
+     * 
+     * @param e - Событие отправки формы
+     */
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
         const success = await login(formData.userLogin, formData.userPassword);

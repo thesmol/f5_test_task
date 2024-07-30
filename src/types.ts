@@ -1,3 +1,6 @@
+/**
+ * Интерфейс, описывающий структуру продукта
+ */
 export interface Product {
     id: number;
     name: string;
@@ -8,6 +11,9 @@ export interface Product {
     defaultSellPrice: number;
 }
 
+/**
+ * Интерфейс, описывающий структуру пользователя
+ */
 export interface User {
     email: string;
     phone?: string;
@@ -16,3 +22,4 @@ export interface User {
     userRoleId: number | null;
     leaders: [number] | [];
 }
+

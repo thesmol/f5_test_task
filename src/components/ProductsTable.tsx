@@ -11,16 +11,29 @@ import { ColDef, ValueGetterParams, ValueSetterParams } from 'ag-grid-community'
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { Product } from "../types";
 
+/**
+ * Компонент таблицы продуктов.
+ * Отображает список продуктов в виде таблицы с использованием AG Grid.
+ *
+ * @returns Таблица продуктов
+ */
 const ProductsTable: React.FC = () => {
     const { data, loading } = useQuery(GET_PRODUCTS);
     const [products, setProducts] = useRecoilState<Product[]>(productsState);
 
+    /**
+     * Подгрузка данных по продуктам при монтировании компонента.
+     * Запись полученные данные в состояние productsState по завершению загрузки данных.
+     */
     useEffect(() => {
         if (!loading) {
             setProducts(data.products);
         }
     }, [data, loading, setProducts]);
 
+    /**
+    * Определение колонок таблицы
+    */
     const columns: ColDef<Product>[] = [
         { headerName: "ID", field: "id" as keyof Product },
         { headerName: "Название", field: "name" as keyof Product },
@@ -44,6 +57,9 @@ const ProductsTable: React.FC = () => {
         { headerName: "Цена продажи", field: "defaultSellPrice" as keyof Product },
     ];
 
+    /**
+     * Настройки колонок по умолчанию
+     */
     const defaultColDef = {
         flex: 1,
         minWidth: 100,
