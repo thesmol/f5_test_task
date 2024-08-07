@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Отображение в окне печати только страницы печати */
+@media print {
+    body>*:not(.printable) {
+        display: none;
+    }
+
+    .printable {
+        display: block;
+    }
+}
+
+/* Скрытие страницы печати на экране во время открытия модального окна печати*/
+@media screen {
+    .printable {
+        display: none;
+    }
+}
+
