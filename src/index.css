@@ -3,21 +3,19 @@
 @tailwind utilities;
 
 
-/* Отображение в окне печати только страницы печати */
 @media print {
-    body>*:not(.printable) {
-        display: none;
+
+    /* Стили для печати */
+    html,
+    body {
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: initial !important;
     }
 
-    .printable {
-        display: block;
+    /* Убрать отсупы внутри страницы на печать*/
+    @page {
+        margin: 0mm;
     }
 }
-
-/* Скрытие страницы печати на экране во время открытия модального окна печати*/
-@media screen {
-    .printable {
-        display: none;
-    }
-}
-
