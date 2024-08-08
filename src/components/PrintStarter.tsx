@@ -1,4 +1,5 @@
 import { ReactNode, useRef, ReactElement, cloneElement } from 'react';
+import { createPortal } from 'react-dom';
 import { useReactToPrint } from 'react-to-print';
 
 interface PrintStarterProps {
@@ -34,10 +35,13 @@ const PrintStarter: React.FC<PrintStarterProps> = ({ children, trigger }) => {
     <>
       {/* Элемент для запуска печати */}
       {triggerWithHandler}
-      {/* Элемент для печати. Скрыт */}
-      <div ref={printRef} className='hidden'>
-        {children}
-      </div>
+      {/* Рендеринг печатного контента в отдельный элемент, который не влияет на основной DOM */}
+      {createPortal(
+        <div ref={printRef} className='hidden'>
+          {children}
+        </div>,
+        document.body // Рендеринг в body
+      )}
     </>
   );
 };
