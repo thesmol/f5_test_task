@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@media print {
+
+    /* Стили для печати */
+    html,
+    body {
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: initial !important;
+    }
+
+    /* Убрать отсупы внутри страницы на печать*/
+    @page {
+        margin: 0mm;
+    }
+}

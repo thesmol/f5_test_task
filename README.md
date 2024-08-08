@@ -19,8 +19,16 @@ The task required developing a web application that:
 
 ## Implementation
 
-### Features
+### Project structure
 
+- `src/components`: React components
+- `src/pages`: Page components
+- `src/hooks`: Custom hooks
+- `src/graphql`: GraphQL queries, mutations and client
+- `src/state`: Recoil state management
+- `src/types`: TypeScript types
+
+### Features
 1. **Product Table**
    - Implemented a `ProductsTable` component using AG Grid to display product information.
    - Integrated GraphQL to fetch data from the server with the `GET_PRODUCTS` query.
