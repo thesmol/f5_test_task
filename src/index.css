@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
+.hidden {
+    display: none;
+}
+
 @media print {
 
     /* Стили для печати */
