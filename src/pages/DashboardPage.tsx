@@ -1,7 +1,7 @@
-import { Container, Typography } from "@mui/material"
+import { Button, Container, Typography } from "@mui/material"
 import ProductsTable from "../components/ProductsTable"
 import PrintOrderPage from "./print/PrintOrderPage";
-import PrintButton from "../components/PrintButton";
+import PrintStarter from "../components/PrintStarter";
 
 /**
  * Компонент страницы дашборда.
@@ -17,10 +17,17 @@ const DashboardPage: React.FC = () => {
                 Продукты
             </Typography>
             <ProductsTable />
-            <PrintButton name={"Печать заказа!"}>
+            {/**
+             * Стартер печати, принимающий в качестве тригерра печати - кнопку
+             */}
+            <PrintStarter
+                trigger={
+                    <Button variant="contained" color="primary">Печать документа</Button>
+                }
+            >
                 <PrintOrderPage orderId={29085} />
-            </PrintButton>
-        </Container>
+            </PrintStarter>
+        </Container >
     )
 }
 
