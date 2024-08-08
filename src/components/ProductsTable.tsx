@@ -18,7 +18,7 @@ import { Product } from "../types";
  * @returns Таблица продуктов
  */
 const ProductsTable: React.FC = () => {
-    const { data, loading } = useQuery(GET_PRODUCTS);
+    const { data, loading, error } = useQuery(GET_PRODUCTS);
     const [products, setProducts] = useRecoilState<Product[]>(productsState);
 
     /**
@@ -26,10 +26,14 @@ const ProductsTable: React.FC = () => {
      * Запись полученные данные в состояние productsState по завершению загрузки данных.
      */
     useEffect(() => {
-        if (!loading) {
+        if (!loading && !error) {
             setProducts(data.products);
         }
-    }, [data, loading, setProducts]);
+    }, [data, loading, error, setProducts]);
+
+    if (error) {
+        return <p>Ошибка: {error.message}</p>;
+    }
 
     /**
     * Определение колонок таблицы
