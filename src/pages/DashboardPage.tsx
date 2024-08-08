@@ -18,7 +18,7 @@ const DashboardPage: React.FC = () => {
             </Typography>
             <ProductsTable />
             <PrintButton name={"Печать заказа!"}>
-                <PrintOrderPage />
+                <PrintOrderPage orderId={29085} />
             </PrintButton>
         </Container>
     )
