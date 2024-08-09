@@ -23,24 +23,6 @@ export interface User {
     leaders: [number] | [];
 }
 
-interface SalesTableRow {
-    // Наименование
-    name: string;
-
-    archived: boolean;
-
-    process: {
-        unit: {
-            // Единица измерения (шт)
-            name: string
-        }
-    };
-    // Количество
-    quantity: number;
-    // Цена за единицу
-    pricePerUnit: number;
-}
-
 export interface SalesOrder {
     id: number;
     // Название заказа (SO-1)
@@ -55,7 +37,7 @@ export interface SalesOrder {
     billingAddress: string;
 
     // Адрес грузополучателя
-    shippingAddress: string;
+    shippingAddress?: string | null;
 
     // Описание
     info?: string;
@@ -66,10 +48,24 @@ export interface SalesOrder {
     customer: {
         name: string
     };
-    // Ответсвенный
+    // Ответственный
     manager: {
         name: string
     };
 
-    salesOrderTableData: [SalesTableRow]
+    salesOrderTableData: salesOrderTableDataRow[]
+}
+
+export interface salesOrderTableDataRow {
+    pricePerUnit: number
+    product: {
+        archived: boolean
+        name: string
+        process: {
+            unit: {
+                name: string
+            }
+        }
+    }
+    quantity: number
 }
